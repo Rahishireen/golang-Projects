@@ -4,13 +4,11 @@ package mergesort
 func Mergesort(originalArray []int) []int {
 	arrayLen:= len(originalArray)
 	 if arrayLen == 1 {
-		 return originalArray
-	 }
-
-	mid:= arrayLen/2
-	
+		  return originalArray
+	 } else {
+	mid:= arrayLen/2	
 	leftArray := make([]int,mid)
-	rightArray :=  make([]int,(arrayLen-mid))
+	rightArray :=  make([]int,(arrayLen-mid))	
 
 	for i:=0;i<arrayLen;i++{
 	if i<mid{
@@ -19,40 +17,39 @@ func Mergesort(originalArray []int) []int {
 		rightArray[i-mid]=originalArray[i]
 	}
 	}
-	leftArray = originalArray[:mid]
-	rightArray =originalArray[mid:]
-	return Merge(leftArray,rightArray,originalArray)
+	return Merge(Mergesort(leftArray),Mergesort(rightArray))
+}
 
 }
 
-func Merge(left []int, right []int, original []int) []int{	
+func Merge(left []int, right []int) []int{	
 	leftArrayLen:=len(left)
 	rightArrayLen:=len(right)
-
+	var result []int
 	i:=0
 	j:=0
 	k:=0
-
 	for (i<leftArrayLen && j<rightArrayLen){
 		if (left[i]<right[j]){
-			original[k]=left[i]
+			result=append(result,left[i])
+			
 			i++			
 		}else{
-			original[k]=right[j]
+			result=append(result,right[j])
 			j++		
 		}
 		k++
 	}
 
 	for (i<leftArrayLen){
-		original[k]=left[i]
+		result=append(result,left[i])
 		i++
 		k++
 	}
 	for (j<rightArrayLen){
-		original[k]=right[j]
+		result=append(result,right[j])
 		j++
 		k++
 	}
-	return original
+	return result
 }

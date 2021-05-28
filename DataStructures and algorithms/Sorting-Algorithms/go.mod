@@ -1,3 +1,3 @@
-module sorting-Algorithms
+module mergesort
 
 go 1.16
