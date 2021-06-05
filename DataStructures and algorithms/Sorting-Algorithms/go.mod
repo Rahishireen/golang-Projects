@@ -1,3 +1,3 @@
-module mergesort
+module quicksort
 
 go 1.16
