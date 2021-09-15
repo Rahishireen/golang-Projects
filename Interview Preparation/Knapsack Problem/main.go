@@ -25,8 +25,8 @@ func main() {
 		var project serverUsage
 		(&project).createProject()
 		optimalValue:=(&project).optimalValue()
-		fmt.Println("Optimal Value can be added to the Server ",i," is ",optimalValue)
-		fmt.Println("total Value of the each projet ",i," is ",(&project).totalValue())
+		fmt.Println("Optimal Value can be added to the Server ",i+1," is ",optimalValue)
+		fmt.Println("total Value of the each projet ",i+1," is ",(&project).totalValue())
 		totalOptimalValue=totalOptimalValue+optimalValue
 
 		}
